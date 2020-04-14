@@ -16,7 +16,8 @@ const convertToDays = (data) => {
 const covid19ImpactEstimator = (data) => {
   // deconstruct the reportCases value from the data
   const {
-    reportedCases, timeToElapse, periodType, totalHospitalBeds
+    reportedCases, timeToElapse, periodType, totalHospitalBeds,
+    region: { avgDailyIncomeInUSD, avgDailyIncomePopulation }
   } = data;
 
   // initialize the impact and severeImpact properties for the output
@@ -65,10 +66,10 @@ const covid19ImpactEstimator = (data) => {
   impact.casesForVentilatorsByRequestedTime = Math.trunc(icasesForVentilatorsByRequestedTime);
   severeImpact.casesForVentilatorsByRequestedTime = Math.trunc(sIForVentilatorsByRequestedTime);
 
-  impact.dollarsInFlight = (impact.infectionsByRequestedTime * 0.65)
-  * 1.5 * convertToDays(data);
-  severeImpact.dollarsInFlight = (severeImpact.infectionsByRequestedTime * 0.65)
-  * 1.5 * convertToDays(data);
+  impact.dollarsInFlight = (impact.infectionsByRequestedTime * avgDailyIncomePopulation)
+  * avgDailyIncomeInUSD * convertToDays(data);
+  severeImpact.dollarsInFlight = (severeImpact.infectionsByRequestedTime * avgDailyIncomePopulation)
+  * avgDailyIncomeInUSD * convertToDays(data);
 
   return {
     data,
