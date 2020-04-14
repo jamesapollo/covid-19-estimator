@@ -14,7 +14,7 @@ const covid19ImpactEstimator = (data) => {
   if (periodType === 'days') {
     factor = Math.ceil(timeToElapse / 3);
   } else if (periodType === 'weeks') {
-    factor = Math.ceil((timeToElapse * 7) / 3 );
+    factor = Math.ceil((timeToElapse * 7) / 3);
   } else if (periodType === 'months') {
     factor = Math.ceil((timeToElapse * 30) / 3);
   }
