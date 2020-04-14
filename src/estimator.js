@@ -1,6 +1,7 @@
 const covid19ImpactEstimator = (data) => {
   // deconstruct the reportCases value from the data
-  const { reportedCases, timeToElapse, periodType, totalHospitalBeds
+  const {
+    reportedCases, timeToElapse, periodType, totalHospitalBeds
   } = data;
 
   // initialize the impact and severeImpact properties for the output
@@ -31,7 +32,7 @@ const covid19ImpactEstimator = (data) => {
   - impact.severeCasesByRequestedTime;
   severeImpact.hospitalBedsByRequestedTime = (totalHospitalBeds * 0.35)
   - severeImpact.severeCasesByRequestedTime;
-  
+
   return {
     data,
     impact,
