@@ -21,10 +21,10 @@ const covid19ImpactEstimator = (data, duration) => {
   severeImpact.infectionsByRequestedTime = severeImpact.currentlyInfected * 2 ** factor;
 
   return {
-      data,
-      impact,
-      severeImpact
-  }
+    data,
+    impact,
+    severeImpact
+  };
 };
 
 export default covid19ImpactEstimator;
