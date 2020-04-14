@@ -1,4 +1,4 @@
-const covid19ImpactEstimator = (data, duration) => {
+const covid19ImpactEstimator = (data) => {
   // deconstruct the reportCases value from the data
   const { reportedCases, timeToElapse } = data;
 
