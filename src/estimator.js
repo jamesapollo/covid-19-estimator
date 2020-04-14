@@ -60,11 +60,11 @@ const covid19ImpactEstimator = (data) => {
   const icasesForVentilatorsByRequestedTime = Math.trunc(impact.infectionsByRequestedTime * 0.02);
   const sIForVentilatorsByRequestedTime = Math.trunc(severeImpact.infectionsByRequestedTime * 0.02);
 
-  impact.casesForICUByRequestedTime = Math.trunc(icasesForICUByRequestedTime);
-  severeImpact.casesForICUByRequestedTime = Math.trunc(sIcasesForICUByRequestedTime);
+  impact.casesForICUByRequestedTime = icasesForICUByRequestedTime;
+  severeImpact.casesForICUByRequestedTime = sIcasesForICUByRequestedTime;
 
-  impact.casesForVentilatorsByRequestedTime = Math.trunc(icasesForVentilatorsByRequestedTime);
-  severeImpact.casesForVentilatorsByRequestedTime = Math.trunc(sIForVentilatorsByRequestedTime);
+  impact.casesForVentilatorsByRequestedTime = icasesForVentilatorsByRequestedTime;
+  severeImpact.casesForVentilatorsByRequestedTime = sIForVentilatorsByRequestedTime;
 
   impact.dollarsInFlight = (impact.infectionsByRequestedTime * avgDailyIncomePopulation)
   * avgDailyIncomeInUSD * convertToDays(data);
